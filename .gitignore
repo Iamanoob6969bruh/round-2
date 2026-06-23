@@ -1,0 +1,34 @@
+# Node
+node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Built frontend is generated in Docker; keep repo lean
+backend/static/
+
+# Runtime evidence images
+backend/data/evidence/*
+!backend/data/evidence/.gitkeep
+
+# Runtime violation database — SQLite is generated at runtime (migrated from
+# the JSON seed on first boot); never commit the DB or its WAL/SHM sidecars.
+backend/data/*.sqlite
+backend/data/*.sqlite-shm
+backend/data/*.sqlite-wal
+backend/data/*.json.imported
+
+# Misc
+*.log
+.DS_Store
+
+# Evaluation: keep the harness + docs, ignore user images and generated outputs
+backend/eval/images/*
+!backend/eval/images/.gitkeep
+backend/eval/preview/
+backend/eval/ground_truth.draft.json
+backend/eval/ground_truth.json

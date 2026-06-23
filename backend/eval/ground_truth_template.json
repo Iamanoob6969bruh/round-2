@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "verified": false,
+    "note": "Set verified=true ONLY after a human has reviewed every box/plate. evaluate.py refuses to score until then."
+  },
+  "example_motorcycle_scene.jpg": {
+    "detections": [
+      {"bbox": [120, 200, 360, 520], "class": "motorcycle"},
+      {"bbox": [150, 80, 320, 480], "class": "person"}
+    ],
+    "violations": [
+      {"type": "helmet_violation", "bbox": [150, 80, 360, 520]}
+    ],
+    "plates": [
+      {"text": "KA18EJ8800"}
+    ]
+  },
+  "example_triple_riding.jpg": {
+    "detections": [
+      {"bbox": [200, 300, 480, 640], "class": "motorcycle"},
+      {"bbox": [210, 150, 300, 600], "class": "person"},
+      {"bbox": [290, 160, 380, 610], "class": "person"},
+      {"bbox": [370, 170, 460, 620], "class": "person"}
+    ],
+    "violations": [
+      {"type": "triple_riding", "bbox": [200, 150, 480, 640]}
+    ],
+    "plates": [
+      {"text": "MH12AB1234"}
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "images_used": 8,
+  "conditions": {
+    "low_light": {
+      "without_enhancer": {
+        "avg_detections": 19.6,
+        "avg_confidence": 0.516
+      },
+      "with_enhancer": {
+        "avg_detections": 23.4,
+        "avg_confidence": 0.526
+      },
+      "detection_improvement_pct": 19.4
+    },
+    "motion_blur": {
+      "without_enhancer": {
+        "avg_detections": 9.2,
+        "avg_confidence": 0.54
+      },
+      "with_enhancer": {
+        "avg_detections": 8.0,
+        "avg_confidence": 0.538
+      },
+      "detection_improvement_pct": -13.0
+    },
+    "rain": {
+      "without_enhancer": {
+        "avg_detections": 21.0,
+        "avg_confidence": 0.544
+      },
+      "with_enhancer": {
+        "avg_detections": 20.4,
+        "avg_confidence": 0.549
+      },
+      "detection_improvement_pct": -2.9
+    }
+  }
+}

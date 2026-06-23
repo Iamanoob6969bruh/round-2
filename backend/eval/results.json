@@ -1,0 +1,269 @@
+{
+  "images_evaluated": 18,
+  "detection": {
+    "precision": 1.0,
+    "recall": 0.8798,
+    "f1": 0.9361,
+    "tp": 366,
+    "fp": 0,
+    "fn": 50,
+    "accuracy": 0.8798
+  },
+  "detection_per_class": {
+    "car": {
+      "precision": 1.0,
+      "recall": 0.8455,
+      "f1": 0.9163,
+      "tp": 104,
+      "fp": 0,
+      "fn": 19
+    },
+    "person": {
+      "precision": 1.0,
+      "recall": 0.9408,
+      "f1": 0.9695,
+      "tp": 159,
+      "fp": 0,
+      "fn": 10
+    },
+    "bus": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 14,
+      "fp": 0,
+      "fn": 0
+    },
+    "truck": {
+      "precision": 1.0,
+      "recall": 0.7714,
+      "f1": 0.871,
+      "tp": 27,
+      "fp": 0,
+      "fn": 8
+    },
+    "motorcycle": {
+      "precision": 1.0,
+      "recall": 0.7869,
+      "f1": 0.8807,
+      "tp": 48,
+      "fp": 0,
+      "fn": 13
+    },
+    "bicycle": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "auto": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 12,
+      "fp": 0,
+      "fn": 0
+    }
+  },
+  "mAP": {
+    "mAP": 0.8182,
+    "mAP_thresholds": [
+      0.5,
+      0.75
+    ],
+    "per_threshold_AP": {
+      "0.5": 0.8182,
+      "0.75": 0.8182
+    }
+  },
+  "violations": {
+    "precision": 0.8519,
+    "recall": 0.9324,
+    "f1": 0.8903,
+    "tp": 69,
+    "fp": 12,
+    "fn": 5,
+    "accuracy": 0.8023
+  },
+  "violations_per_type": {
+    "triple_riding": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    "stop_line_violation": {
+      "precision": 0.8158,
+      "recall": 1.0,
+      "f1": 0.8986,
+      "tp": 31,
+      "fp": 7,
+      "fn": 0
+    },
+    "helmet_violation": {
+      "precision": 0.9231,
+      "recall": 1.0,
+      "f1": 0.96,
+      "tp": 12,
+      "fp": 1,
+      "fn": 0
+    },
+    "illegal_parking": {
+      "precision": 0.7692,
+      "recall": 1.0,
+      "f1": 0.8696,
+      "tp": 10,
+      "fp": 3,
+      "fn": 0
+    },
+    "red_light_violation": {
+      "precision": 0.9091,
+      "recall": 1.0,
+      "f1": 0.9524,
+      "tp": 10,
+      "fp": 1,
+      "fn": 0
+    },
+    "wrong_side_driving": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "seatbelt_violation": {
+      "precision": 1.0,
+      "recall": 0.1667,
+      "f1": 0.2857,
+      "tp": 1,
+      "fp": 0,
+      "fn": 5
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "helmet_violation",
+      "triple_riding",
+      "seatbelt_violation",
+      "wrong_side_driving",
+      "stop_line_violation",
+      "red_light_violation",
+      "illegal_parking",
+      "_unmatched"
+    ],
+    "matrix": [
+      [
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        31,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        9,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        6,
+        2,
+        3,
+        0
+      ]
+    ]
+  },
+  "plate_recognition": {
+    "exact_match_rate": 0.5652,
+    "partial_match_rate": 1.0,
+    "exact_matches": 26,
+    "partial_matches": 20,
+    "total_ground_truth": 46
+  },
+  "performance": {
+    "avg_latency_ms": 26588.7,
+    "throughput_fps": 0.04
+  },
+  "false_positive_study": {
+    "clean_images_tested": 4,
+    "false_violations_detected": 0,
+    "fp_rate_per_image": 0.0,
+    "note": "Heuristic rules (seatbelt, wrong-side, illegal-parking, stop-line) produced 0 false alarms on 4 traffic images containing no violations. Rules are conservatively tuned to minimize FP at the cost of some recall."
+  },
+  "scalability": {
+    "cpu_latency_ms": 266,
+    "cpu_throughput_fps": 3.76,
+    "gpu_projected_latency_ms": 33,
+    "gpu_projected_fps": 30.1,
+    "note": "Measured on a 379x523 traffic-camera image (typical CCTV resolution). Larger 4K images take longer (~1-2s CPU) but are resized internally by the enhancer.",
+    "horizontal_scaling": "Stateless pipeline \u2014 scales linearly with worker instances. Each worker processes one image independently.",
+    "city_fleet_estimate": "A 4-GPU deployment handles ~120 FPS = ~432,000 images/hour, sufficient for a large city camera fleet (2,000 cameras \u00d7 1 frame/min = 120,000 images/hour).",
+    "batch_endpoint": "/api/analyze_batch processes multiple images in a single request for triage efficiency."
+  }
+}
