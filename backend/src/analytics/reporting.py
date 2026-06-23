@@ -56,7 +56,8 @@ class DatabaseConnection:
         self.conn.commit()
 
     def close(self):
-        self.conn.close()
+        if self.is_postgres:
+            self.conn.close()
 
 
 class NumpyEncoder(json.JSONEncoder):
