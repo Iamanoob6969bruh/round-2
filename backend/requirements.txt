@@ -1,20 +1,20 @@
 # Web server
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
-python-multipart==0.0.9
+fastapi
+uvicorn[standard]
+python-multipart
 
 # ML / CV pipeline (same stack as the original TrafficVioLens project)
 # Pin torch < 2.6 so ultralytics 8.2.0 can load yolov8n.pt (torch>=2.6 defaults
 # weights_only=True which breaks the checkpoint load).
-torch==2.2.2
-torchvision==0.17.2
-ultralytics==8.2.0
-opencv-python-headless==4.9.0.80
-numpy==1.26.4
-easyocr==1.7.1
-pytesseract==0.3.13
-Pillow==10.3.0
-scikit-image==0.23.2
-pandas==2.2.2
+torch<2.6
+torchvision
+ultralytics
+opencv-python-headless
+numpy
+easyocr
+pytesseract
+Pillow
+scikit-image
+pandas
 fpdf2
-psycopg2-binary==2.9.9
+psycopg2-binary
