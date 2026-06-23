@@ -2,7 +2,7 @@
 
 **Automated Photo Identification & Classification for Traffic Violations Using Computer Vision**
 
-🔗 **Live Demo:** [https://huggingface.co/spaces/iamanoob6969/trafficviolens](https://huggingface.co/spaces/iamanoob6969/trafficviolens)
+🔗 **Live Demo:** [https://trafficviolens-frontend.vercel.app/](https://trafficviolens-frontend.vercel.app/)
 
 ---
 
@@ -58,7 +58,7 @@ Image → Enhance → Detect → Violations → Plate OCR → Evidence → EDS T
 **Tech Stack:**
 - Backend: Python 3.11, FastAPI, OpenCV, Ultralytics YOLOv8, EasyOCR, Tesseract
 - Frontend: React 18, Vite
-- Deployment: Docker, Hugging Face Spaces
+- Deployment: Docker, Modal (Backend), Vercel (Frontend)
 - Database: SQLite with append-only hash chain
 
 ---
@@ -136,109 +136,25 @@ Real metrics from labelled validation set: Precision, Recall, F1, mAP per class.
 
 ## Run Locally
 
-### 1. Install System Dependencies (Required for Local OCR)
-The license plate recognizer utilizes the Tesseract OCR engine. You must install it on your host system:
-*   **Ubuntu / Debian:**
-    ```bash
-    sudo apt update
-    sudo apt install -y tesseract-ocr tesseract-ocr-eng
-    ```
-*   **macOS (via Homebrew):**
-    ```bash
-    brew install tesseract
-    ```
-*   **Windows:**
-    1. Download the installer from the [tesseract GitHub repository](https://github.com/UB-Mannheim/tesseract/wiki).
-    2. Add the installation path (usually `C:\Program Files\Tesseract-OCR`) to your system Environment Variables (`PATH`).
-
----
-
-### Option A: Docker (Recommended - Zero Setup)
-Docker automatically bundles the Tesseract system engines, Node, and Python packages into a single container.
-
-#### Step 1: Install Docker (if not already installed)
-*   **Ubuntu / Debian:**
-    ```bash
-    sudo apt update && sudo apt install -y docker.io
-    sudo systemctl start docker
-    sudo usermod -aG docker $USER    # Re-login required for user group permissions
-    ```
-*   **macOS (via Homebrew):**
-    ```bash
-    brew install --cask docker
-    ```
-*   **Windows (via Winget):**
-    ```cmd
-    winget install Docker.DockerDesktop
-    ```
-
-#### Step 2: Build & Run the Container
-1.  **Build the Docker Image:**
-    ```bash
-    docker build -t trafficviolens .
-    ```
-2.  **Run the Container:**
-    ```bash
-    docker run -p 7860:7860 trafficviolens
-    ```
-3.  **Open in browser:** Navigate to **`http://localhost:7860`**.
-
----
-
-### Option B: One-Command Startup (Automated)
-We have included setup scripts that automate setting up the Python environment, installing dependencies, and launching both backend and frontend servers in one command:
-*   **Linux / macOS:**
-    ```bash
-    ./run.sh
-    ```
-*   **Windows:**
-    Double-click `run.bat` or run:
-    ```cmd
-    run.bat
-    ```
-👉 Open your browser to **`http://localhost:5173`**.
-
----
-
-### Option C: Manual Setup (Fallback)
-If the automated scripts fail, follow these manual steps to start the services:
-
-#### Step 1: Start the Backend API
-1.  Navigate to the backend directory:
-    ```bash
-    cd backend
-    ```
-2.  Create and activate a Python virtual environment:
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate      # On Windows: .venv\Scripts\activate
-    ```
-3.  Install dependencies and launch:
-    ```bash
-    pip install -r requirements.txt
-    uvicorn main:app --port 8000 --reload
-    ```
-    *(The backend automatically creates a local SQLite database at `backend/data/violations_db.sqlite` if no cloud database is set).*
-
-#### Step 2: Start the Frontend App
-1.  Open a **second terminal** and navigate to the frontend directory:
-    ```bash
-    cd frontend
-    ```
-2.  Install Node dependencies and start the Vite development server:
-    ```bash
-    npm install
-    npm run dev
-    ```
-👉 Open your browser to **`http://localhost:5173`** (Vite automatically proxies API requests to the port 8000 backend).
-
----
-
-### Database Configuration (Optional)
-By default, the application runs on a local **SQLite** database, requiring zero setup. 
-To deploy it to production or use a cloud database, simply expose the `DATABASE_URL` environment variable pointing to a PostgreSQL database (e.g. Supabase, Neon):
+### Option A: Docker (recommended)
 ```bash
-export DATABASE_URL="postgresql://user:password@host:port/dbname"
+docker build -t trafficviolens .
+docker run -p 7860:7860 trafficviolens
+# Open http://localhost:7860
+```
+
+### Option B: Dev mode
+```bash
+# Terminal 1 - Backend
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --port 8000
+
+# Terminal 2 - Frontend
+cd frontend
+npm install
+npm run dev
+# Open http://localhost:5173
 ```
 
 ---
