@@ -34,7 +34,7 @@ cd ..
 
 echo [3/4] Starting backend server on http://localhost:8000...
 cd backend
-start /b cmd /c ".venv\Scripts\activate.bat && uvicorn main:app --port 8000"
+start /b cmd /c ".venv\Scripts\activate.bat && python -m uvicorn main:app --port 8000"
 cd ..
 
 echo [4/4] Starting React frontend server on http://localhost:5173...

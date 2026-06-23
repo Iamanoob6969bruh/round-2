@@ -41,7 +41,7 @@ cd ..
 echo "🚀 Starting backend server on http://localhost:8000..."
 cd backend
 source .venv/bin/activate
-uvicorn main:app --port 8000 &
+python -m uvicorn main:app --port 8000 &
 BACKEND_PID=$!
 cd ..
 

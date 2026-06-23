@@ -148,7 +148,7 @@ docker run -p 7860:7860 trafficviolens
 # Terminal 1 - Backend
 cd backend
 pip install -r requirements.txt
-uvicorn main:app --port 8000
+python -m uvicorn main:app --port 8000
 
 # Terminal 2 - Frontend
 cd frontend
